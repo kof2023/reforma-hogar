@@ -3,223 +3,288 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ReformaHogar - Reformas, Remodelación, Decoración y Reparaciones</title>
+    <title>ReformaHogar - Reformas, Remodelacion, Decoracion y Reparaciones</title>
+    <meta name="description" content="Expertos en reformas integrales, remodeling, decoracion y reparaciones 24h en Madrid.">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700 and family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; }
-        
-        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
-        .fade-in.visible { opacity: 1; transform: translateY(0); }
-        
-        header { background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); color: white; padding: 1rem 2rem; position: fixed; width: 100%; top: 0; z-index: 1000; }
-        nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.8rem; font-weight: bold; }
-        .logo span { color: #d4af37; }
-        nav ul { display: flex; list-style: none; gap: 2rem; }
-        nav a { color: white; text-decoration: none; transition: color 0.3s; }
-        nav a:hover { color: #d4af37; }
-        
-        .hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1920&q=80') center/cover fixed; min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; padding: 6rem 2rem 4rem; }
-        .hero h1 { font-size: 3.5rem; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
-        .hero h1 span { color: #d4af37; }
-        .hero p { font-size: 1.4rem; margin-bottom: 2rem; max-width: 700px; }
-        .cta-button { display: inline-block; background: linear-gradient(135deg, #d4af37 0%, #b8942e 100%); color: #1a1a1a; padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: transform 0.3s, box-shadow 0.3s; }
-        .cta-button:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4); }
-        
-        .stats { background: linear-gradient(135deg, #d4af37 0%, #b8942e 100%); padding: 3rem 2rem; display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap; }
-        .stat { text-align: center; color: #1a1a1a; }
-        .stat-number { font-size: 3rem; font-weight: bold; }
-        .stat-label { font-size: 1rem; }
-        
-        .services { background: white; padding: 6rem 2rem; }
-        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 1rem; color: #1a1a1a; }
-        .section-subtitle { text-align: center; color: #666; margin-bottom: 3rem; font-size: 1.1rem; }
-        
-        .category-title { font-size: 1.4rem; color: #d4af37; margin: 3rem 0 1.5rem; padding-bottom: 0.5rem; border-bottom: 2px solid #d4af37; display: inline-block; }
-        
-        .services-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
-        .service-card { background: #f8f9fa; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.1); transition: transform 0.4s; }
-        .service-card:hover { transform: translateY(-10px); }
-        .service-img { width: 100%; height: 180px; object-fit: cover; }
-        .service-content { padding: 1.5rem; }
-        .service-content h3 { font-size: 1.2rem; margin-bottom: 0.5rem; color: #1a1a1a; }
-        .service-content p { color: #666; font-size: 0.95rem; }
-        
-        .gallery { background: #f8f9fa; padding: 6rem 2rem; }
-        .gallery-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-        .gallery-item { position: relative; border-radius: 15px; overflow: hidden; height: 280px; }
-        .gallery-item:first-child { grid-column: span 2; grid-row: span 2; height: 100%; }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
-        .gallery-item:hover img { transform: scale(1.1); }
-        .gallery-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.8)); color: white; padding: 1.5rem; }
-        .gallery-overlay h4 { font-size: 1rem; margin-bottom: 0.3rem; }
-        .gallery-overlay p { font-size: 0.85rem; opacity: 0.8; }
-        
-        .why-us { background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); color: white; padding: 6rem 2rem; }
-        .why-us .section-title { color: white; }
-        .why-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; }
-        .why-item { text-align: center; padding: 2rem; background: rgba(255,255,255,0.1); border-radius: 20px; }
-        .why-icon { font-size: 3rem; margin-bottom: 1rem; }
-        .why-item h3 { margin-bottom: 0.5rem; color: #d4af37; }
-        
-        .testimonials { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1920&q=80') center/cover fixed; color: white; padding: 6rem 2rem; }
-        .testimonials .section-title { color: white; }
-        .testimonial-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .testimonial { background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 20px; backdrop-filter: blur(5px); }
-        .testimonial-text { font-style: italic; margin-bottom: 1.5rem; font-size: 1.05rem; }
-        .testimonial-author { color: #d4af37; font-weight: bold; }
-        .testimonial-project { opacity: 0.7; font-size: 0.9rem; }
-        
-        .cta-section { background: linear-gradient(135deg, #d4af37 0%, #b8942e 100%); padding: 5rem 2rem; text-align: center; color: #1a1a1a; }
-        .cta-section h2 { font-size: 2.5rem; margin-bottom: 1rem; }
-        .cta-section p { font-size: 1.2rem; margin-bottom: 2rem; }
-        .cta-section .cta-button { background: #1a1a1a; color: white; }
-        
-        .contact { background: white; padding: 6rem 2rem; }
-        .contact-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
-        .contact-image { width: 100%; height: 400px; object-fit: cover; border-radius: 20px; }
-        .contact-info h3 { font-size: 1.5rem; margin-bottom: 1.5rem; color: #1a1a1a; }
-        .contact-item { display: flex; align-items: center; gap: 1rem; margin: 1rem 0; font-size: 1.1rem; }
-        .contact-icon { font-size: 1.5rem; color: #d4af37; }
-        
-        footer { background: #1a1a1a; color: white; padding: 3rem 2rem; text-align: center; }
-        footer p { opacity: 0.7; }
-        
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            nav ul { display: none; }
-            .gallery-grid { grid-template-columns: 1fr; }
-            .gallery-item:first-child { grid-column: span 1; grid-row: span 1; height: 300px; }
-            .contact-grid { grid-template-columns: 1fr; }
-            .stats { gap: 2rem; }
-        }
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--gold:#d4af37;--gold-dark:#b8942e;--dark:#1a1a1a;--light:#f8f9fa;--gray:#6c757d}
+        html{scroll-behavior:smooth}
+        body{font-family:Inter,sans-serif;line-height:1.7;color:#333}
+        h1,h2,h3{font-family:"Playfair Display",serif}
+        .fade-in{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
+        .fade-in.visible{opacity:1;transform:translateY(0)}
+        @keyframes fadeInUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+        header{background:rgba(26,26,26,.95);backdrop-filter:blur(20px);padding:1rem 2rem;position:fixed;width:100%;top:0;z-index:1000}
+        nav{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+        .logo{font-family:"Playfair Display",serif;font-size:1.8rem;font-weight:700;color:#fff;text-decoration:none;display:flex;align-items:center;gap:.5rem}
+        .logo-icon{width:45px;height:45px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem}
+        .logo span{color:var(--gold)}
+        nav ul{display:flex;list-style:none;gap:2rem}
+        nav a{color:#fff;text-decoration:none;font-weight:500;transition:color .3s}
+        nav a:hover{color:var(--gold)}
+        .nav-cta{background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--dark)!important;padding:.7rem 1.5rem;border-radius:50px;font-weight:600}
+        .hero{background:linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.6)),url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c") center/cover;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;padding:8rem 2rem 4rem}
+        .hero h1{font-size:4.5rem;margin-bottom:1.5rem;animation:fadeInUp .8s ease}
+        .hero h1 span{color:var(--gold)}
+        .hero p{font-size:1.4rem;max-width:650px;margin:0 auto 2rem;animation:fadeInUp .8s ease .2s both}
+        .btn-primary{background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--dark);padding:1rem 2.5rem;border-radius:50px;text-decoration:none;font-weight:600;display:inline-block;transition:transform .3s,box-shadow .3s}
+        .btn-primary:hover{transform:translateY(-3px);box-shadow:0 15px 40px rgba(212,175,55,.4)}
+        .stats{background:linear-gradient(135deg,var(--gold),var(--gold-dark));padding:4rem 2rem}
+        .stats-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;text-align:center;color:var(--dark)}
+        .stat-number{font-family:"Playfair Display",serif;font-size:3.5rem;font-weight:700;display:block}
+        .about{padding:8rem 2rem;background:#fff}
+        .about-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+        .about-images{position:relative}
+        .about-img{width:100%;height:500px;object-fit:cover;border-radius:20px;box-shadow:0 30px 60px rgba(0,0,0,.15)}
+        .about-badge{position:absolute;top:15px;left:15px;background:var(--gold);color:var(--dark);padding:1rem;border-radius:12px;text-align:center;font-weight:700}
+        .about-badge .n{font-size:2.5rem;font-family:"Playfair Display",serif;display:block}
+        .about-text h2{font-size:2.8rem;color:var(--dark);margin-bottom:1.5rem}
+        .about-text p{color:var(--gray);font-size:1.05rem;margin-bottom:1rem}
+        .about-features{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-top:1.5rem}
+        .about-feature{display:flex;align-items:center;gap:.5rem;font-weight:500}
+        .services{padding:8rem 2rem;background:var(--light)}
+        .section-header{text-align:center;margin-bottom:4rem}
+        .section-badge{display:inline-block;background:rgba(212,175,55,.2);color:var(--gold-dark);padding:.5rem 1.5rem;border-radius:50px;font-size:.85rem;font-weight:600;margin-bottom:1rem}
+        .section-title{font-size:3rem;color:var(--dark);margin-bottom:.5rem}
+        .section-subtitle{color:var(--gray);font-size:1.1rem}
+        .category{margin-bottom:4rem}
+        .category-title{font-size:1.6rem;color:var(--dark);margin-bottom:1.5rem;display:flex;align-items:center;gap:1rem}
+        .category-title::after{content:"";flex:1;height:2px;background:var(--gold)}
+        .services-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+        .service-card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,.08);transition:transform .4s,box-shadow .4s}
+        .service-card:hover{transform:translateY(-8px);box-shadow:0 15px 50px rgba(0,0,0,.15)}
+        .service-img{width:100%;height:180px;object-fit:cover;transition:transform .5s}
+        .service-card:hover .service-img{transform:scale(1.05)}
+        .service-content{padding:1.5rem}
+        .service-content h3{font-size:1.2rem;color:var(--dark);margin-bottom:.5rem}
+        .service-content p{color:var(--gray);font-size:.95rem}
+        .comparison{background:var(--dark);padding:8rem 2rem;color:#fff}
+        .comparison .section-title{color:#fff}
+        .comparison-grid{max-width:1000px;margin:4rem auto 0;display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+        .comparison-card{background:rgba(255,255,255,.1);border-radius:20px;overflow:hidden}
+        .comparison-card img{width:100%;height:350px;object-fit:cover}
+        .comparison-label{background:var(--gold);color:var(--dark);padding:.8rem;text-align:center;font-weight:700}
+        .process{padding:8rem 2rem;background:#fff}
+        .process-timeline{max-width:900px;margin:4rem auto 0;position:relative}
+        .process-timeline::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:3px;background:var(--gold);transform:translateX(-50%)}
+        .step{display:flex;gap:2rem;margin-bottom:3rem;position:relative}
+        .step-num{position:absolute;left:50%;transform:translateX(-50%);width:60px;height:60px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:700;color:var(--dark);z-index:1}
+        .step-content{flex:1;padding-top:.5rem}
+        .step-content h3{font-size:1.4rem;color:var(--dark);margin-bottom:.5rem}
+        .step-content p{color:var(--gray)}
+        .gallery{padding:8rem 2rem;background:var(--light)}
+        .gallery-grid{max-width:1200px;margin:4rem auto 0;display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:1rem}
+        .gallery-item{position:relative;border-radius:12px;overflow:hidden}
+        .gallery-item:first-child{grid-column:span 2;grid-row:span 2}
+        .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+        .gallery-item:hover img{transform:scale(1.1)}
+        .gallery-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.8),transparent);display:flex;flex-direction:column;justify-content:flex-end;padding:1rem;opacity:0;transition:opacity .3s}
+        .gallery-item:hover .gallery-overlay{opacity:1}
+        .gallery-overlay h4{color:#fff;font-size:1rem}
+        .gallery-overlay p{color:rgba(255,255,255,.7);font-size:.85rem}
+        .testimonials{padding:8rem 2rem;background:linear-gradient(rgba(0,0,0,.85),rgba(0,0,0,.9)),url("https://images.unsplash.com/photo-1600210492486-724fe5c67fb0") center/cover fixed;color:#fff}
+        .testimonials .section-title{color:#fff}
+        .testimonials-grid{max-width:1100px;margin:4rem auto 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem}
+        .testimonial{background:rgba(255,255,255,.1);backdrop-filter:blur(10px);padding:2rem;border-radius:16px;border:1px solid rgba(255,255,255,.1)}
+        .testimonial-text{font-size:1.05rem;font-style:italic;margin-bottom:1.5rem;line-height:1.7}
+        .testimonial-author{display:flex;align-items:center;gap:1rem}
+        .testimonial-avatar{width:45px;height:45px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--dark)}
+        .testimonial-info h4{font-size:1rem}
+        .testimonial-info p{font-size:.85rem;opacity:.7}
+        .cta{padding:6rem 2rem;background:linear-gradient(135deg,var(--gold),var(--gold-dark));text-align:center;color:var(--dark)}
+        .cta h2{font-size:2.8rem;margin-bottom:1rem}
+        .cta p{font-size:1.2rem;opacity:.8;margin-bottom:2rem}
+        .cta .btn-primary{background:var(--dark);color:#fff}
+        .faq{padding:8rem 2rem;background:#fff}
+        .faq-grid{max-width:800px;margin:4rem auto 0}
+        .faq-item{border-bottom:1px solid #eee;padding:1.5rem 0}
+        .faq-question{display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-weight:600;color:var(--dark)}
+        .faq-answer{max-height:0;overflow:hidden;transition:max-height .3s}
+        .faq-item.active .faq-answer{max-height:200px}
+        .faq-answer p{color:var(--gray);margin-top:1rem}
+        .contact{padding:8rem 2rem;background:var(--light)}
+        .contact-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem}
+        .contact-image{width:100%;height:100%;object-fit:cover;border-radius:20px;min-height:400px}
+        .contact-item{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem}
+        .contact-icon{width:50px;height:50px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem}
+        .contact-text h4{font-size:1rem;color:var(--dark)}
+        .contact-text p,.contact-text a{color:var(--gray);text-decoration:none}
+        footer{background:var(--dark);color:#fff;padding:4rem 2rem 2rem}
+        .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem}
+        .footer-brand p{color:rgba(255,255,255,.6);margin-top:1rem;font-size:.95rem}
+        .footer-col h4{color:var(--gold);margin-bottom:1.5rem}
+        .footer-col ul{list-style:none}
+        .footer-col li{margin-bottom:.8rem}
+        .footer-col a{color:rgba(255,255,255,.6);text-decoration:none;font-size:.95rem}
+        .footer-col a:hover{color:var(--gold)}
+        .footer-bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:3rem;padding-top:2rem;text-align:center;color:rgba(255,255,255,.5);font-size:.9rem}
+        .whatsapp{position:fixed;bottom:2rem;right:2rem;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 25px rgba(37,211,102,.4);z-index:999;color:#fff;font-size:1.8rem;text-decoration:none}
+        .whatsapp:hover{transform:scale(1.1)}
+        @media(max-width:1024px){.hero h1{font-size:3rem}.about-grid,.contact-grid,.footer-grid{grid-template-columns:1fr}.gallery-grid{grid-template-columns:repeat(2,1fr)}.gallery-item:first-child{grid-column:span 2}}
+        @media(max-width:768px){nav ul{display:none}.hero h1{font-size:2.2rem}.stats-grid{grid-template-columns:repeat(2,1fr)}.gallery-grid{grid-template-columns:1fr}.gallery-item:first-child{grid-column:span 1}}
     </style>
 </head>
 <body>
     <header>
         <nav>
-            <div class="logo">Reforma<span>Hogar</span></div>
+            <a href="#" class="logo"><div class="logo-icon">H</div>Reforma<span>Hogar</span></a>
             <ul>
                 <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#galeria">Galería</a></li>
-                <li><a href="#nosotros">Por Qué Nosotros</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#galeria">Galeria</a></li>
+                <li><a href="#proceso">Proceso</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contacto" class="nav-cta">Presupuesto</a></li>
             </ul>
         </nav>
     </header>
-    
     <section class="hero">
-        <div class="hero-content fade-in">
-            <h1>Tu Hogar, <span>Nuestra Obra Maestra</span></h1>
-            <p>Reformas integrales, remodeling completo, decoración profesional y reparaciones express. Más de 15 años transformando hogares en Madrid.</p>
-            <a href="#contacto" class="cta-button">Solicita Presupuesto Gratis</a>
-        </div>
+        <h1>Tu Hogar, <span>Nuestra Obra Maestra</span></h1>
+        <p>Expertos en reformas integrales, remodeling completo, decoracion profesional y reparaciones express 24h en Madrid.</p>
+        <a href="#contacto" class="btn-primary">Solicitar Presupuesto Gratis</a>
     </section>
-    
     <section class="stats">
-        <div class="stat fade-in"><div class="stat-number">200+</div><div class="stat-label">Proyectos Completados</div></div>
-        <div class="stat fade-in"><div class="stat-number">15</div><div class="stat-label">Años de Experiencia</div></div>
-        <div class="stat fade-in"><div class="stat-number">98%</div><div class="stat-label">Clientes Satisfechos</div></div>
-        <div class="stat fade-in"><div class="stat-number">24h</div><div class="stat-label">Reparaciones Express</div></div>
-    </section>
-    
-    <section class="services" id="servicios">
-        <h2 class="section-title fade-in">Nuestros Servicios</h2>
-        <p class="section-subtitle fade-in">Soluciones totales para tu hogar</p>
-        
-        <h3 class="category-title fade-in">🔨 REFORMAS Y REMODELACIÓN INTEGRAL</h3>
-        <div class="services-grid">
-            <div class="service-card fade-in"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Reforma integral" class="service-img"><div class="service-content"><h3>🏠 Reforma Integral de Pisos</h3><p>Remodelación completa: démolición, redistribución, instalaciones nuevas, acabados premium. Tu piso como nuevo.</p></div></div>
-            <div class="service-card fade-in"><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=600&q=80" alt="Remodelación cocina" class="service-img"><div class="service-content"><h3>🍳 Remodelación de Cocinas</h3><p>Te derribamos la cocina entera y te entregamos un espacio nuevo. Muebles, encimeras, electrodomésticos.</p></div></div>
-            <div class="service-card fade-in"><img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=600&q=80" alt="Remodelación baño" class="service-img"><div class="service-content"><h3>🛁 Remodelación de Baños</h3><p>Baños completamente nuevos. Nos encargamos de todo: fontanería, alicatados, sanitarios, griferías.</p></div></div>
-            <div class="service-card fade-in"><img src="https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?w=600&q=80" alt="Remodelación salón" class="service-img"><div class="service-content"><h3>🛋️ Remodelación de Salones</h3><p>Openspace modernos, eliminación de tabiques, tarima, pintura, lighting. Tu salón irreconocible.</p></div></div>
-            <div class="service-card fade-in"><img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&q=80" alt="Dormitorios" class="service-img"><div class="service-content"><h3>🛏️ Remodelación de Dormitorios</h3><p> Vestidores a medida, cabeceros de diseño, suelos de madera, pintura decorativa.</p></div></div>
-            <div class="service-card fade-in"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80" alt="Áticos" class="service-img"><div class="service-content"><h3>🏠 Áticos y Terrrazas</h3><p>Remodelación de áticos, terrazas y buhardillas. Optimizamos cada metro cuadrado.</p></div></div>
-        </div>
-        
-        <h3 class="category-title fade-in">🎨 DECORACIÓN Y ACABADOS</h3>
-        <div class="services-grid">
-            <div class="service-card fade-in"><img src="https://images.unsplash.com/photo-1615529182904-14819c35db37?w=600&q=80" alt="Decoración" class="service-img"><div class="service-content"><h3>🎨 Decoración de Interiores</h3><p>Proyectos de interiorismo personalizados. Colores, texturas, mobiliario, iluminación.</p></div></div>
-            <div class="service-card fade-in"><img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&q=80" alt="Pintura" class="service-img"><div class="service-content"><h3>🖌️ Pintura Decorativa</h3><p>Pintura lisa, gotelé eliminado, efectos decorativos, papel tapiz, stencil.</p></div></div>
-            <div class="service-card fade-in"><img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&q=80" alt="Iluminación" class="service-img"><div class="service-content"><h3>💡 Diseño de Iluminación</h3><p>LED empotrado, downlights, tiras RGB, apliques, pendientes. Creamos ambientes.</p></div></div>
-            <div class="service-card fade-in"><img src="https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?w=600&q=80" alt="Muebles" class="service-img"><div class="service-content"><h3>🪑 Muebles a Medida</h3><p>Estanterías, vestidores, bibliotecas, escritorios. Todo diseñado para tu espacio.</p></div></div>
-            <div class="service-card fade-in"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80" alt="Suelos" class="service-img"><div class="service-content"><h3>🏗️ Suelos y Parquets</h3><p>Tarima flotante, parquet, suelo vinílico, cerámica. Instalación profesional.</p></div></div>
-            <div class="service-card fade-in"><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&q=80" alt="Cortinas" class="service-img"><div class="service-content"><h3>🪟 Cortinas y Persianas</h3><p>Motorizaciones, estores, paneles japoneses, Venecianas. Automatiza tus ventanas.</p></div></div>
-        </div>
-        
-        <h3 class="category-title fade-in">🔧 REPARACIONES EXPRESS 24H</h3>
-        <div class="services-grid">
-            <div class="service-card fade-in"><img src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=600&q=80" alt="Fontanería" class="service-img"><div class="service-content"><h3>🚿 Fontanería 24h</h3><p>Fugas, tuberías, grifos, cisternas, desatascos. Servicio de emergencia.</p></div></div>
-            <div class="service-card fade-in"><img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?w=600&q=80" alt="Electricidad" class="service-img"><div class="service-content"><h3>⚡ Electricidad 24h</h3><p>Averías, cortocircuitos, cambios de cuadro, enchufes. Certificados incluidos.</p></div></div>
-            <div class="service-card fade-in"><img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=600&q=80" alt="Cristales" class="service-img"><div class="service-content"><h3>🪟 Cristales y Vidrios</h3><p>Cambio de cristales rotos, mirror, mamparas, puertas de ducha.</p></div></div>
-            <div class="service-card fade-in"><img src="https://images.unsplash.com/photo-1600585154363-67eb9e2e2099?w=600&q=80" alt="Cerrajería" class="service-img"><div class="service-content"><h3>🔐 Cerrajería 24h</h3><p>Apertura de puertas, cambio de cerraduras, copies de llaves, bombines.</p></div></div>
-            <div class="service-card fade-in"><img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=600&q=80" alt="Calefacción" class="service-img"><div class="service-content"><h3>❄️ Calefacción y Calderas</h3><p>Reparación de calderas, radiadores, termos. Servicio inmediato.</p></div></div>
-            <div class="service-card fade-in"><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=600&q=80" alt="Pintura reparación" class="service-img"><div class="service-content"><h3>🖌️ Reparación de Paredes</h3><p>Grietas, humedades, gotelé eliminado, empastado, pintura.</p></div></div>
+        <div class="stats-grid">
+            <div class="stat"><span class="stat-number">200+</span><span>Proyectos</span></div>
+            <div class="stat"><span class="stat-number">15</span><span>Anos</span></div>
+            <div class="stat"><span class="stat-number">98%</span><span>Clientes</span></div>
+            <div class="stat"><span class="stat-number">24h</span><span>Reparaciones</span></div>
         </div>
     </section>
-    
-    <section class="gallery" id="galeria">
-        <h2 class="section-title fade-in">Nuestros Proyectos</h2>
-        <p class="section-subtitle fade-in">Remodelaciones y reformas que transforman hogares</p>
-        
-        <div class="gallery-grid">
-            <div class="gallery-item fade-in"><img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=1200&q=80" alt="Reforma completa"><div class="gallery-overlay"><h4>Piso Completo Madrid Centro</h4><p>Remodelación integral con cocina americana</p></div></div>
-            <div class="gallery-item fade-in"><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&q=80" alt="Salón"><div class="gallery-overlay"><h4>Salón Open Space</h4><p>Sin tabiques, tarima, lighting</p></div></div>
-            <div class="gallery-item fade-in"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="Cocina"><div class="gallery-overlay"><h4>Cocina Premium</h4><p>Isla central, Quartz Negro</p></div></div>
-            <div class="gallery-item fade-in"><img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&q=80" alt="Baño"><div class="gallery-overlay"><h4>Baño Suite</h4><p>Ducha rain, bañera exenta</p></div></div>
-            <div class="gallery-item fade-in"><img src="https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?w=800&q=80" alt="Dormitorio"><div class="gallery-overlay"><h4>Dormitorio Diseño</h4><p>Cabecero a medida, vestidor</p></div></div>
-        </div>
-    </section>
-    
-    <section class="why-us" id="nosotros">
-        <h2 class="section-title fade-in">¿Por Qué Elegirnos?</h2>
-        <div class="why-grid">
-            <div class="why-item fade-in"><div class="why-icon">✅</div><h3>Presupuesto Cerrado</h3><p>Precio fijo sin sorpresas. Lo que acordamos es lo que pagas.</p></div>
-            <div class="why-item fade-in"><div class="why-icon">⏰</div><h3>Puntualidad</h3><p>Cumplimos los plazos. Garantía de entrega o devolvemos dinero.</p></div>
-            <div class="why-item fade-in"><div class="why-icon">🏆</div><h3>5 Años Garantía</h3><p>Todos nuestros trabajos incluyen garantía oficial por escrito.</p></div>
-            <div class="why-item fade-in"><div class="why-icon">📋</div><h3>Certificados Oficiales</h3><p>Entregamos boletines, certificados y toda la documentación.</p></div>
-        </div>
-    </section>
-    
-    <section class="testimonials">
-        <h2 class="section-title fade-in">Lo Que Dicen Nuestros Clientes</h2>
-        <div class="testimonial-grid">
-            <div class="testimonial fade-in"><p class="testimonial-text">"Remodelaron todo nuestro piso de 90m². Nos derribaron tabiques, hicieron cocina americana, dos baños nuevos. Increíble resultado."</p><div class="testimonial-author">María y Pedro García</div><div class="testimonial-project">Remodelación integral Chamberí, Madrid</div></div>
-            <div class="testimonial fade-in"><p class="testimonial-text">"Teníamos humedades y gotelé de los 80. En 3 semanas quedó perfecto. Los pintores fueronunos artistas."</p><div class="testimonial-author">Carlos Rodríguez</div><div class="testimonial-project">Pintura + reparación paredes</div></div>
-            <div class="testimonial fade-in"><p class="testimonial-text">"La decoración que nos propusieron superó nuestras expectativas. El salón quedó Spectacular."</p><div class="testimonial-author">Laura Martínez</div><div class="testimonial-project">Decoración integral Alcobendas</div></div>
-        </div>
-    </section>
-    
-    <section class="cta-section">
-        <h2 class="fade-in">¿Necesitas una Reforma, Remodelación o Reparación?</h2>
-        <p class="fade-in">Presupuesto gratis y sin compromiso. Respondemos en 24h.</p>
-        <a href="#contacto" class="cta-button fade-in">Solicitar Presupuesto</a>
-    </section>
-    
-    <section class="contact" id="contacto">
-        <div class="contact-grid">
-            <img src="https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?w=800&q=80" alt="Nuestro equipo" class="contact-image fade-in">
-            <div class="contact-info fade-in">
-                <h3>Contacta con Nosotros</h3>
-                <div class="contact-item"><span class="contact-icon">📞</span><span>+34 912 345 678</span></div>
-                <div class="contact-item"><span class="contact-icon">📱</span><span>+34 627 357 601</span></div>
-                <div class="contact-item"><span class="contact-icon">✉️</span><span>info@reformahogar.es</span></div>
-                <div class="contact-item"><span class="contact-icon">📍</span><span>Calle Gran Vía 45, Madrid</span></div>
-                <div class="contact-item"><span class="contact-icon">⏰</span><span>Lun-Sáb: 9:00 - 19:00</span></div>
-                <div class="contact-item"><span class="contact-icon">🚨</span><span>Emergencias 24h: 627 357 601</span></div>
+    <section class="about">
+        <div class="about-grid">
+            <div class="about-images">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="Reforma" class="about-img">
+                <div class="about-badge"><span class="n">15</span>Anos Exp.</div>
+            </div>
+            <div class="about-text">
+                <h2>Expertos en Transformar Hogares</h2>
+                <p>En ReformaHogar llevamos mas de 15 anos realizando reformas integrales, remodeling completo y decoracion de interiores en Madrid.</p>
+                <p>Somos especialistas en reformas de pisos destacados, donde cada metro cuadrado cuenta.</p>
+                <div class="about-features">
+                    <div class="about-feature">- Presupuesto cerrado</div>
+                    <div class="about-feature">- 5 anos garantia</div>
+                    <div class="about-feature">- Plazos garantizados</div>
+                    <div class="about-feature">- Certificados</div>
+                </div>
             </div>
         </div>
     </section>
-    
+    <section class="services" id="servicios">
+        <div class="section-header">
+            <div class="section-badge">Nuestros Servicios</div>
+            <h2 class="section-title">Soluciones Totales para Tu Hogar</h2>
+            <p class="section-subtitle">Reformas, remodeling, decoracion y reparaciones 24h</p>
+        </div>
+        <div class="category">
+            <h3 class="category-title">REFORMAS Y REMODELACION</h3>
+            <div class="services-grid">
+                <div class="service-card"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" class="service-img"><div class="service-content"><h3>Reforma Integral</h3><p>Transformacion completa de tu piso. Demolicion, redistribucion, instalaciones, acabados premium.</p></div></div>
+                <div class="service-card"><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea" class="service-img"><div class="service-content"><h3>Cocinas</h3><p>Muebles a medida, encimeras de quarzo, electrodomesticos. Cocina nueva.</p></div></div>
+                <div class="service-card"><img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea" class="service-img"><div class="service-content"><h3>Banos</h3><p>Fontaneria, alicatados, sanitarios, griferias. Bano nuevo.</p></div></div>
+                <div class="service-card"><img src="https://images.unsplash.com/photo-1600210491892-03d54c0aaf87" class="service-img"><div class="service-content"><h3>Salones</h3><p>Openspace, eliminacion tabiques, tarima, pintura, lighting.</p></div></div>
+            </div>
+        </div>
+        <div class="category">
+            <h3 class="category-title">DECORACION Y ACABADOS</h3>
+            <div class="services-grid">
+                <div class="service-card"><img src="https://images.unsplash.com/photo-1615529182904-14819c35db37" class="service-img"><div class="service-content"><h3>Decoracion</h3><p>Interiorismo personalizado. Colores, texturas, mobiliario.</p></div></div>
+                <div class="service-card"><img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6" class="service-img"><div class="service-content"><h3>Pintura</h3><p>Pintura lisa, gotele eliminado, papel tapiz, efectos.</p></div></div>
+                <div class="service-card"><img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d" class="service-img"><div class="service-content"><h3>Iluminacion</h3><p>LED empotrado, downlights, tiras RGB, apliques.</p></div></div>
+                <div class="service-card"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c" class="service-img"><div class="service-content"><h3>Muebles a Medida</h3><p>Estanterias, vestidores, bibliotecas a medida.</p></div></div>
+            </div>
+        </div>
+        <div class="category">
+            <h3 class="category-title">REPARACIONES 24H</h3>
+            <div class="services-grid">
+                <div class="service-card"><img src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e" class="service-img"><div class="service-content"><h3>Fontaneria</h3><p>Fugas, tuberias, grifos, desatascos. Servicio 24h.</p></div></div>
+                <div class="service-card"><img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b" class="service-img"><div class="service-content"><h3>Electricidad</h3><p>Averias, cortocircuitos, cuadro. Certificados.</p></div></div>
+                <div class="service-card"><img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde" class="service-img"><div class="service-content"><h3>Cristales</h3><p>Cambio cristales, espejo, mamparas.</p></div></div>
+                <div class="service-card"><img src="https://images.unsplash.com/photo-1600585154363-67eb9e2e2099" class="service-img"><div class="service-content"><h3>Cerrajeria</h3><p>Apertura puertas, cerraduras, copias llaves.</p></div></div>
+            </div>
+        </div>
+    </section>
+    <section class="comparison">
+        <div class="section-header">
+            <div class="section-badge">Resultados</div>
+            <h2 class="section-title">Transformaciones Reales</h2>
+        </div>
+        <div class="comparison-grid">
+            <div class="comparison-card"><div class="comparison-label">ANTES</div><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64" alt="Antes"></div>
+            <div class="comparison-card"><div class="comparison-label">DESPUES</div><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c" alt="Despues"></div>
+        </div>
+    </section>
+    <section class="process" id="proceso">
+        <div class="section-header">
+            <div class="section-badge">Como Trabajamos</div>
+            <h2 class="section-title">4 Pasos Simples</h2>
+        </div>
+        <div class="process-timeline">
+            <div class="step"><div class="step-num">1</div><div class="step-content"><h3>Visita y Presupuesto</h3><p>Analizamos tu espacio y te enviamos presupuesto detallado en 48h.</p></div></div>
+            <div class="step"><div class="step-num">2</div><div class="step-content"><h3>Diseno Personalizado</h3><p>Nuestro equipo crea planos 3D para visualices el resultado.</p></div></div>
+            <div class="step"><div class="step-num">3</div><div class="step-content"><h3>Ejecucion Profesional</h3><p>Equipos cualificados con materiales de primera. Limpieza diaria.</p></div></div>
+            <div class="step"><div class="step-num">4</div><div class="step-content"><h3>Entrega y Garantia</h3><p>Entrega en plazo. 5 anos de garantia y certificados.</p></div></div>
+        </div>
+    </section>
+    <section class="gallery" id="galeria">
+        <div class="section-header">
+            <div class="section-badge">Nuestros Trabajos</div>
+            <h2 class="section-title">Galeria de Proyectos</h2>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f" alt="Piso completo"><div class="gallery-overlay"><h4>Piso Completo Madrid</h4><p>Reforma integral</p></div></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea" alt="Salon"><div class="gallery-overlay"><h4>Salon Moderno</h4><p>Open space</p></div></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="Cocina"><div class="gallery-overlay"><h4>Cocina Isla</h4><p>Quartz negro</p></div></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea" alt="Bano"><div class="gallery-overlay"><h4>Bano Suite</h4><p>Ducha rain</p></div></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1600210491892-03d54c0aaf87" alt="Dormitorio"><div class="gallery-overlay"><h4>Dormitorio</h4><p>Diseno unico</p></div></div>
+        </div>
+    </section>
+    <section class="testimonials">
+        <div class="section-header">
+            <div class="section-badge">Testimonios</div>
+            <h2 class="section-title">Lo Que Dicen Nuestros Clientes</h2>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial"><p class="testimonial-text">Increible transformacion. Teniamos un piso de los 80 y quedo como nuevo. Profesionales de verdad.</p><div class="testimonial-author"><div class="testimonial-avatar">MG</div><div class="testimonial-info"><h4>Maria Garcia</h4><p>Chamberi, Madrid</p></div></div></div>
+            <div class="testimonial"><p class="testimonial-text">Me arreglaron el bano en 2 dias. Grand Slam profesional y precio muy razonable.</p><div class="testimonial-author"><div class="testimonial-avatar">CR</div><div class="testimonial-info"><h4>Carlos Rodriguez</h4><p>Pozuelo, Madrid</p></div></div></div>
+            <div class="testimonial"><p class="testimonial-text">Decoraron todo el salon. La combinacion de colores que propusieron fue perfecta.</p><div class="testimonial-author"><div class="testimonial-avatar">LM</div><div class="testimonial-info"><h4>Laura Martinez</h4><p>Alcobendas</p></div></div></div>
+        </div>
+    </section>
+    <section class="faq" id="faq">
+        <div class="section-header">
+            <div class="section-badge">Preguntas Frecuentes</div>
+            <h2 class="section-title">Tienes Dudas?</h2>
+        </div>
+        <div class="faq-grid">
+            <div class="faq-item"><div class="faq-question">Cuanto cuesta una reforma integral?<span>+</span></div><div class="faq-answer"><p>Depende de los metros y alcance. Una reforma integral de un piso de 90m2 suele partir de 25.000EUR. Te damos presupuesto cerrado sin sorpresas.</p></div></div>
+            <div class="faq-item"><div class="faq-question">Cuanto tiempo tarda una reforma?<span>+</span></div><div class="faq-answer"><p>Una reforma integral de piso de 90m2 suele tardar entre 4 y 8 semanas dependiendo del alcance.</p></div></div>
+            <div class="faq-item"><div class="faq-question">Haceis reparaciones de emergencia?<span>+</span></div><div class="faq-answer"><p>Si, tenemos servicio de emergencias 24h para fontaneria, electricidad, cerrajeria y cristales.</p></div></div>
+            <div class="faq-item"><div class="faq-question">Garantizais los plazos?<span>+</span></div><div class="faq-answer"><p>Si, si no cumplimos el plazo acordado, devolvemos dinero. Asi de seguros estamos de nuestro trabajo.</p></div></div>
+        </div>
+    </section>
+    <section class="contact" id="contacto">
+        <div class="contact-grid">
+            <img src="https://images.unsplash.com/photo-1600210491892-03d54c0aaf87" alt="Equipo" class="contact-image">
+            <div class="contact-info">
+                <h2 style="font-size:2rem;margin-bottom:2rem;color:var(--dark)">Contacta con Nosotros</h2>
+                <div class="contact-item"><div class="contact-icon">+</div><div class="contact-text"><h4>Telefono</h4><p>+34 912 345 678</p></div></div>
+                <div class="contact-item"><div class="contact-icon">M</div><div class="contact-text"><h4>Movil</h4><p>+34 627 357 601</p></div></div>
+                <div class="contact-item"><div class="contact-icon">@</div><div class="contact-text"><h4>Email</h4><p>info@reformahogar.es</p></div></div>
+                <div class="contact-item"><div class="contact-icon">L</div><div class="contact-text"><h4>Direccion</h4><p>Calle Gran Via 45, Madrid</p></div></div>
+                <div class="contact-item"><div class="contact-icon">!</div><div class="contact-text"><h4>Emergencias 24h</h4><p>+34 627 357 601</p></div></div>
+            </div>
+        </div>
+    </section>
     <footer>
-        <p>© 2026 ReformaHogar - Reformas, Remodelación, Decoración y Reparaciones | Madrid<br>Servicio de emergencia 24h</p>
+        <div class="footer-grid">
+            <div class="footer-brand"><div class="logo" style="color:#fff"><div class="logo-icon">H</div>Reforma<span>Hogar</span></div><p>Expertos en reformas, remodeling, decoracion y reparaciones en Madrid desde hace 15 anos.</p></div>
+            <div class="footer-col"><h4>Servicios</h4><ul><li><a href="#">Reformas</a></li><li><a href="#">Decoracion</a></li><li><a href="#">Reparaciones</a></li></ul></div>
+            <div class="footer-col"><h4>Empresa</h4><ul><li><a href="#">Sobre Nosotros</a></li><li><a href="#">Proyectos</a></li><li><a href="#">Contacto</a></li></ul></div>
+            <div class="footer-col"><h4>Contacto</h4><ul><li><a href="#">+34 912 345 678</a></li><li><a href="#">info@reformahogar.es</a></li><li><a href="#">Lun-Sab 9-19h</a></li></ul></div>
+        </div>
+        <div class="footer-bottom"><p>2026 ReformaHogar - Reformas, Remodelacion, Decoracion y Reparaciones | Madrid</p></div>
     </footer>
-    
-    <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-    </script>
+    <a href="https://wa.me/34627357601" class="whatsapp" target="_blank">W</a>
+    <script>const observer=new IntersectionObserver(e=>{e.forEach(t=>{t.isIntersecting&&t.target.classList.add("visible")})},{threshold:.1});document.querySelectorAll(".fade-in").forEach(e=>observer.observe(e));document.querySelectorAll(".faq-item").forEach(e=>{e.querySelector(".faq-question").addEventListener("click",()=>{e.classList.toggle("active")})});</script>
 </body>
 </html>
